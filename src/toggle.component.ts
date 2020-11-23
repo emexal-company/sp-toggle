@@ -12,6 +12,18 @@ export class Toggle extends Base {
   @property({ type: Boolean }) disabled = false;
   @property({ type: String }) labelA = false;
   @property({ type: String }) labelB = false;
+  @property({ type: String }) value = '';
+
+  protected handleChange(e: any) {
+    this.value = e.target.value;
+
+    const changedEvent = new CustomEvent('valuechanged', {
+      detail: { value: this.value },
+      bubbles: true,
+      composed: true,
+    });
+    this.dispatchEvent(changedEvent);
+  }
 
   protected render() {
     return template.call(this);

@@ -25,7 +25,13 @@ export default function template() {
     return html `
     <div class="spectrum-ToggleSwitch ${classMap(classes)}">
         ${templateAB}
-        <input type="checkbox" class="spectrum-ToggleSwitch-input" id=${id} ?disabled=${this.disabled}>
+        <input 
+            type="checkbox" 
+            class="spectrum-ToggleSwitch-input" 
+            id=${id} 
+            ?disabled=${this.disabled}
+            .value="${this.value}"
+            @input="${this.handleChange}">
         <span class="spectrum-ToggleSwitch-switch"></span>
         <label class="spectrum-ToggleSwitch-label" for=${id}>${this.labelB}</label>
     </div>

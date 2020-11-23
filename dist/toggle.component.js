@@ -11,6 +11,16 @@ let Toggle = class Toggle extends Base {
         this.disabled = false;
         this.labelA = false;
         this.labelB = false;
+        this.value = '';
+    }
+    handleChange(e) {
+        this.value = e.target.value;
+        const changedEvent = new CustomEvent('valuechanged', {
+            detail: { value: this.value },
+            bubbles: true,
+            composed: true,
+        });
+        this.dispatchEvent(changedEvent);
     }
     render() {
         return template.call(this);
@@ -37,6 +47,10 @@ __decorate([
     property({ type: String }),
     __metadata("design:type", Object)
 ], Toggle.prototype, "labelB", void 0);
+__decorate([
+    property({ type: String }),
+    __metadata("design:type", Object)
+], Toggle.prototype, "value", void 0);
 Toggle = __decorate([
     customElement('sp-toggle')
 ], Toggle);

@@ -6,6 +6,8 @@ export declare class Toggle extends Base {
     disabled: boolean;
     labelA: boolean;
     labelB: boolean;
+    value: string;
+    protected handleChange(e: any): void;
     protected render(): import("lit-element").TemplateResult;
 }
 declare global {
