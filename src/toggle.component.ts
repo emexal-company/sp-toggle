@@ -12,13 +12,13 @@ export class Toggle extends Base {
   @property({ type: Boolean }) disabled = false;
   @property({ type: String }) labelA = false;
   @property({ type: String }) labelB = false;
-  @property({ type: String }) value = '';
+  @property({ type: Boolean }) checked;
 
   protected handleChange(e: any) {
-    this.value = e.target.value;
+    this.checked = e.target.checked;
 
     const changedEvent = new CustomEvent('valuechanged', {
-      detail: { value: this.value },
+      detail: { checked: this.checked },
       bubbles: true,
       composed: true,
     });

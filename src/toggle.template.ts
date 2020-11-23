@@ -38,7 +38,7 @@ export default function template(this: Toggle) {
             class="spectrum-ToggleSwitch-input" 
             id=${id} 
             ?disabled=${this.disabled}
-            .value="${this.value}"
+            .checked="${this.checked}"
             @input="${this.handleChange}">
         <span class="spectrum-ToggleSwitch-switch"></span>
         <label class="spectrum-ToggleSwitch-label" for=${id}>${this.labelB}</label>

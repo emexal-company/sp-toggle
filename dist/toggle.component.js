@@ -11,12 +11,11 @@ let Toggle = class Toggle extends Base {
         this.disabled = false;
         this.labelA = false;
         this.labelB = false;
-        this.value = '';
     }
     handleChange(e) {
-        this.value = e.target.value;
+        this.checked = e.target.checked;
         const changedEvent = new CustomEvent('valuechanged', {
-            detail: { value: this.value },
+            detail: { checked: this.checked },
             bubbles: true,
             composed: true,
         });
@@ -48,9 +47,9 @@ __decorate([
     __metadata("design:type", Object)
 ], Toggle.prototype, "labelB", void 0);
 __decorate([
-    property({ type: String }),
+    property({ type: Boolean }),
     __metadata("design:type", Object)
-], Toggle.prototype, "value", void 0);
+], Toggle.prototype, "checked", void 0);
 Toggle = __decorate([
     customElement('sp-toggle')
 ], Toggle);
